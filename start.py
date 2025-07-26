@@ -4,15 +4,15 @@ import json
 import time
 
 
-path = r"C:\Users\Administrator\Desktop\main\chuzhong"
+path = r"C:\Users\blowswind\Desktop\chuzhong"
 nianji = "bax"
-danyuan_new = "unit2"
+danyuan_new = "unit3"
 danyuan = danyuan_new + ".json"
-t_1 = ["topic1", "topic2", "topic3", "review_of_units_5_6"]
+t_1 = ["topic1", "topic2", "topic3", "review_of_unit7"]
 
 new = os.path.join(path, nianji)
 path_new = os.path.join(new, danyuan)
-yyy = r"C:\Users\Administrator\Desktop\main\chuzhong\word_list\{}\{}.db".format(nianji, danyuan_new)
+yyy = r"C:\Users\blowswind\Desktop\chuzhong\word_list\{}\{}.db".format(nianji, danyuan_new)
 
 conn = sqlite3.connect(yyy)
 cursor = conn.cursor()
