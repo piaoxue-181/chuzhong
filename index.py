@@ -24,39 +24,53 @@ mode = os.environ.get("MODE")
 def print_t(print_py):
     print(print_py)
 
+"""错题复习流程，自动检测桌面 problem.json 并处理。"""
+def search(file_name):
+    try:
+        if 'HOMEPATH' in os.environ:
+            desktop_path = os.path.join(os.environ['USERPROFILE'], 'Desktop', file_name)
+        elif 'HOME' in os.environ:
+            desktop_path = os.path.join(os.path.expanduser('~/Desktop'), file_name)
+        else:
+            logger.error("无法确定桌面路径！")
+            sys.exit()
+        with open(desktop_path, 'rb') as open_read:
+            raw_data = open_read.read()
+            result = chardet.detect(raw_data)
+            encoding = result['encoding']
+        with open(desktop_path, 'r', encoding=encoding) as open_json:
+            open_json.seek(0)
+            open_json_read = open_json.read().replace('\n', '')
+            read_json = json.loads(open_json_read)
+            if open_json_read != '{}':
+                return True, read_json
+            else:
+                return False, read_json
+    except Exception as e:
+        logger.error(f"错题文件读取失败: {e}")
+        return False, {}
+
 print('''欢迎来到听写框架组织旗下项目~
 程序工作目录：{}
 运行程序版本：{}   
-组织URL：https://gitcode.com/tingxie'''.format(os.path.dirname(os.path.abspath('index.py')), platform.python_version()))
+组织URL：https://gitcode.com/tingxie
+'''.format(os.path.dirname(os.path.abspath('index.py')), platform.python_version()))
+search_get = search('problem.json')
+
+if search_get[0]:
+    print("您有错题尚未改错，请输入“-r”进行改错~")
+else:
+    print("您的错题本很干净，干净是美好一天的开始！")
+
 if mode == "db":
     print("""tips：如要单独听写每个单元最后一个话题，请将空格与“-”全部改为“_”再输入~
 """)
-    pass
 else:
-    print("\n")
+    print("")
 
 
 
 def cuo():
-    """错题复习流程，自动检测桌面 problem.json 并处理。"""
-    def search(desktop_path):
-        try:
-            with open(desktop_path, 'rb') as open_read:
-                raw_data = open_read.read()
-                result = chardet.detect(raw_data)
-                encoding = result['encoding']
-            with open(desktop_path, 'r', encoding=encoding) as open_json:
-                open_json.seek(0)
-                open_json_read = open_json.read().replace('\n', '')
-                read_json = json.loads(open_json_read)
-                if open_json_read != '{}':
-                    return True, read_json
-                else:
-                    return False, read_json
-        except Exception as e:
-            logger.error(f"错题文件读取失败: {e}")
-            return False, {}
-
     def xie(read_json):
         yes_xie, no_xie, cuo_a = 0, 0, {}
         for i, ans in read_json.items():
@@ -86,16 +100,7 @@ def cuo():
             print_t(f'一共对{yes_xie}个，错{no_xie}个')
             pyc.practice_xie(cuo_a)
 
-    file_name = 'problem.json'
-    if 'HOMEPATH' in os.environ:
-        desktop_path = os.path.join(os.environ['USERPROFILE'], 'Desktop', file_name)
-    elif 'HOME' in os.environ:
-        desktop_path = os.path.join(os.path.expanduser('~/Desktop'), file_name)
-    else:
-        logger.error("无法确定桌面路径！")
-        sys.exit()
-
-    has_problem, problem_json = search(desktop_path)
+    has_problem, problem_json = search('problem.json')
     if has_problem:
         xie(problem_json)
     else:
