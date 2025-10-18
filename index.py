@@ -1,3 +1,9 @@
+"""
+
+重点：Unit6，Unit7，Unit8！
+
+"""
+
 import json
 import logging
 import os
@@ -173,6 +179,9 @@ def ting_main():
 
     def def_status(status_true_or_false):
         nonlocal ercuo, ercuo_count
+        # 每次调用前先清空
+        ercuo = {}
+        ercuo_count = 0
         qu = pya.q(status_true_or_false)
         if qu[0] == 'error':
             logger.error(qu[1] if qu[1] != '未知' else '抱歉，系统出现异常情况，程序退出~')
@@ -191,8 +200,6 @@ def ting_main():
         if ercuo_count != 0:
             print_t(f'\n有{ercuo_count}个二错单词，下面是答案~')
             pyc.index_xie(ercuo)
-            ercuo.clear()
-            ercuo_count = 0
         print_t('\n')
 
     status = input('是否以话题为一个单元听写（yes or no）：')

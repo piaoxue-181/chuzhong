@@ -1,0 +1,35 @@
+{
+    "code": 200,
+    "topic": [
+        "day1",
+        "day2",
+        "day3",
+        "day4",
+        "day5",
+        "day6"
+    ],
+    "txt": {
+        "day1": {
+            "be-was-been": "",
+            "bear-bore-born": "",
+            "beat-beat-beaten": "",
+            "become-became-become": "",
+            "begin-began-begun": "",
+            "blow-blew-blown": "",
+            "break-broke-broken": "",
+            "bring-brought-brought": "",
+            "build-built-built": "",
+            "burn-burnt-burnt": "",
+            "buy-bought-bought": "",
+            "can-could": "",
+            "catch-caught-caught": "",
+            "choose-chose-chosen": "",
+            "come-came-come": "",
+            "cost-cost-cost": "",
+            "cut-cut-cut": ""
+        },
+        "day2": {
+            
+        }
+    }
+}

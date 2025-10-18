@@ -15,7 +15,7 @@
             "get in touch with sb.,keep in touch with sb.": "与某人取得联系",
             "try one's best to do sth.,do one's best to do sth.": "尽最大努力做某事",
             "success": "成功，胜利",
-            "successfull": "成功的",
+            "successful": "成功的",
             "imagine": "想象，设想；猜测",
             "imagination": "想象，想象力",
             "soup": "汤",
@@ -62,8 +62,8 @@
             "sth. come true": "事变为现实，成为事实"
         },
         "topic2": {
-            "fine": "微笑地，细微地",
-            "finely": "（大）晴，（身）体健康的，细小的，精美的；罚单，罚款",
+            "finely": "微笑地，细微地",
+            "fine": "（大）晴，（身）体健康的，细小的，精美的；罚单，罚款",
             "oil": "油",
             "pan": "平底锅",
             "lightly": "轻微地，轻轻地；明亮的，浅色的",
@@ -150,7 +150,7 @@
             "salad": "蔬菜沙拉",
             "lemon": "柠檬",
             "tofu": "豆腐",
-            "main": "主菜",
+            "main course": "主菜",
             "bean": "豆",
             "carrot": "胡萝卜",
             "dessert": "甜点，甜食",
@@ -162,7 +162,7 @@
             "worth": "值得...的；有...价值的",
             "be worth doing sth.,make efforts to do sth.": "努力做某事",
             "effort": "努力，艰难的尝试",
-            "successfully": "成功的",
+            "successfully": "成功地",
             "steak": "牛排，肉排，鱼排",
             "succeed": "成功",
             "neatly": "整洁地，整齐地",
@@ -184,7 +184,7 @@
             "developing": "发展中的",
             "lamb": "羊羔肉；小羊",
             "dislike": "不喜欢；厌恶",
-            "cola": "可乐颜料"
+            "cola": "可乐饮料"
         }
     }
 }
