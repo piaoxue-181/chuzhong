@@ -1,4 +1,10 @@
 # -*-coding:utf-8-*-
+
+"""
+author: 末雨乘风(piaoxue-181)
+time: 2025/12/20
+"""
+
 def q(status):
     # 导入模块
     import json

@@ -1,3 +1,8 @@
+"""
+author: 末雨乘风(piaoxue-181)
+time: 2025/12/20
+"""
+
 def huan(v):
     import random
     # 将单词列表随机一下

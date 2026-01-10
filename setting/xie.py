@@ -1,3 +1,8 @@
+"""
+author: 末雨乘风(piaoxue-181)
+time: 2025/12/20
+"""
+
 import json
 import chardet
 import os

@@ -1,3 +1,10 @@
+"""
+author: 末雨乘风(piaoxue-181)
+time: 2025/12/20
+
+打印出单词表的练习题
+"""
+
 from setting import qu
 
 test = qu.q(False)[0]
