@@ -79,13 +79,19 @@ def cuo():
             python = input(f"{i}：")
             if python == 'exit':
                 break
-            if ',' in ans:
-                if python in ans:
-                    print_t(f'{python} 对喽~')
-                    yes_xie += 1
-                else:
-                    print_t(f'{python} 错喽错喽！正确答案是：{ans}')
-                    no_xie += 1
+            elif ',' in ans:
+                pattern = r"[,]"
+                ok = True
+                result = re.split(pattern, ans)
+                for hello in result:
+                    if python == hello:
+                        print_t('对喽~')
+                        yes += 1
+                        ok = False
+                        break
+                if ok:
+                    print_t(f'{python}错喽错喽！正确答案为{re.sub(",", "或", ans)}~')
+                    no += 1
                     cuo_a[i] = ans
             else:
                 if python == ans:
@@ -125,7 +131,7 @@ def ting_main():
             python = input(f"{v}：")
             if python == 'exit':
                 return
-            if ',' in k:
+            elif ',' in k:
                 pattern = r"[,]"
                 ok = True
                 result = re.split(pattern, k)
@@ -155,7 +161,7 @@ def ting_main():
 
     def gai(item):
         nonlocal ercuo, ercuo_count
-        yes_gai, cuocount = 0, 0
+        yes_gai, cuocount,  = 0, 0
         for ttt, ans in item.items():
             python = input(f"{ttt}：")
             if python == 'exit':
