@@ -11,8 +11,11 @@ def q(status):
     import os
     import sqlite3
     from dotenv import load_dotenv
+    from datetime import datetime
 
     load_dotenv()
+    fp = open("log.txt", "a", encoding="UTF-8")
+    now = datetime.now()
 
     path_main = os.path.dirname(os.path.abspath('index.py'))
     mode = os.environ.get("MODE")
@@ -36,10 +39,14 @@ def q(status):
                                     topic = input('要听写的话题（如topic1）：')
                                     try:
                                         webjson = webjson['txt'][topic]
+                                        print("🥝[info]" + now.strftime("%Y-%m-%d %H:%M:%S") + "--" + item[nianji] + unit + topic, file=fp)
+                                        fp.close()
                                         return webjson, unit, topic
                                     except:
                                         return 'error', '{} 话题不存在！'.format(topic)
                                 else:
+                                    print("🥝[info]" + now.strftime("%Y-%m-%d %H:%M:%S") + "--" + item[nianji] + unit, file=fp)
+                                    fp.close()
                                     return webjson, unit
                             else:
                                 return 'error', '有关 {} 的文件不存在！'.format(unit)
@@ -68,6 +75,8 @@ def q(status):
                                 topic_json = {}
                                 for w in topic_yuan:
                                     topic_json[w[1]] = w[2]
+                                print("🥝[info]" + now.strftime("%Y-%m-%d %H:%M:%S") + "--" + item[nianji] + unit + topic, file=fp)
+                                fp.close()
                                 return topic_json, unit, topic
                             else:
                                 return 'error', '{} 话题不存在！'.format(topic)
@@ -82,6 +91,8 @@ def q(status):
                                 topic_json["txt"][r] = {}
                                 for p in topic_yuan:
                                     topic_json["txt"][r][p[1]] = p[2]
+                            print("🥝[info]" + now.strftime("%Y-%m-%d %H:%M:%S") + "--" + item[nianji] + unit, file=fp)
+                            fp.close()
                             return topic_json, unit
                     else:
                         return 'error', '有关 {} 的文件不存在！'.format(unit)

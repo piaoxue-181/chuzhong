@@ -96,7 +96,7 @@
       "chemical": "化学品",
       "cigarette": "香烟，纸烟",
       "body": "身体",
-      "disease": "病，疾病（前缀为disease）",
+      "disease": "病，疾病（前缀为dis）",
       "harm": "危害，伤害，损害",
       "smoker": "吸烟者",
       "second-hand": "二手的，旧的",
@@ -134,7 +134,7 @@
       "instead": "代替，反而",
       "instead of": "代替"
     },
-    "review of units 1-2": {
+    "review_of_units_1_2": {
       "cooker": "厨灶，炉具",
       "off": "离开；离开",
       "advise": "建议，劝告",
