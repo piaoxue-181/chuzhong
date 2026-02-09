@@ -34,7 +34,7 @@ def search(file_name):
         elif 'HOME' in os.environ:
             desktop_path = os.path.join(os.path.expanduser('~/Desktop'), file_name)
         else:
-            logger.error("无法确定桌面路径！")
+            logger.error("❌ 无法确定桌面路径！")
             sys.exit()
         with open(desktop_path, 'rb') as open_read:
             raw_data = open_read.read()
@@ -49,23 +49,23 @@ def search(file_name):
             else:
                 return False, read_json
     except Exception as e:
-        logger.error(f"错题文件读取失败: {e}")
+        logger.error(f"❌ 错题文件读取失败: {e}")
         return False, {}
 
-print('''欢迎来到听写框架组织旗下项目~
-程序工作目录：{}
-运行程序版本：{}   
-组织URL：https://gitcode.com/tingxie
+print('''🥝 欢迎来到听写框架组织旗下项目~
+🥥 程序工作目录：{}
+🍇 运行程序版本：{}   
+🍈 组织URL：https://gitcode.com/tingxie
 '''.format(os.path.dirname(os.path.abspath('index.py')), platform.python_version()))
 search_get = search('problem.json')
 
 if search_get[0]:
-    print("您有错题尚未改错，请输入“-r”进行改错~")
+    print("❗ 您有错题尚未改错，请输入“-r”进行改错~")
 else:
-    print("您的错题本很干净，干净是美好一天的开始！")
+    print("🍉 您的错题本很干净，干净是美好一天的开始！")
 
 if mode == "db":
-    print("""tips：如要单独听写每个单元最后一个话题，请将空格与“-”全部改为“_”再输入~
+    print("""🍒 tips：如要单独听写每个单元最后一个话题，请将空格与“-”全部改为“_”再输入~
 """)
 else:
     print("")
@@ -85,34 +85,34 @@ def cuo():
                 result = re.split(pattern, ans)
                 for hello in result:
                     if python == hello:
-                        print_t('对喽~')
+                        print_t('✅ 对喽~')
                         yes += 1
                         ok = False
                         break
                 if ok:
-                    print_t(f'{python}错喽错喽！正确答案为{re.sub(",", "或", ans)}~')
+                    print_t(f'❌ {python}错喽错喽！正确答案为{re.sub(",", "或", ans)}~')
                     no += 1
                     cuo_a[i] = ans
             else:
                 if python == ans:
-                    print_t(f'{python} 对喽~')
+                    print_t(f'✅ {python} 对喽~')
                     yes_xie += 1
                 else:
-                    print_t(f'{python} 错喽错喽！正确答案是：{ans}')
+                    print_t(f'❌ {python} 错喽错喽！正确答案是：{ans}')
                     no_xie += 1
                     cuo_a[i] = ans
-        print_t('end~\n')
+        print_t('🍅 end~\n')
         if no_xie == 0:
             pyc.clean()
         else:
-            print_t(f'一共对{yes_xie}个，错{no_xie}个')
+            print_t(f'😏 一共对{yes_xie}个，错{no_xie}个')
             pyc.practice_xie(cuo_a)
 
     has_problem, problem_json = search('problem.json')
     if has_problem:
         xie(problem_json)
     else:
-        print_t('暂无错题~\n')
+        print_t('😀 暂无错题~\n')
 
 
 
@@ -137,26 +137,26 @@ def ting_main():
                 result = re.split(pattern, k)
                 for hello in result:
                     if python == hello:
-                        print_t('对喽~')
+                        print_t('✅ 对喽~')
                         yes += 1
                         ok = False
                         break
                 if ok:
-                    print_t(f'{python}错喽错喽！正确答案为{re.sub(",", "或", k)}~')
+                    print_t(f'❌ {python}错喽错喽！正确答案为{re.sub(",", "或", k)}~')
                     no += 1
                     cuo_a[v] = k
             else:
                 if python == k:
-                    print_t('对喽~')
+                    print_t('✅ 对喽~')
                     yes += 1
                 else:
-                    print_t(f'{python}错喽错喽！正确答案为{k}~')
+                    print_t(f'❌ {python}错喽错喽！正确答案为{k}~')
                     no += 1
                     cuo_a[v] = k
-        print_t('end~\n')
+        print_t('🍅 end~\n')
         if no > 0:
-            print_t(f'一共对{yes}个，错{no}个')
-            print_t(f'不扎实{no}个！巩固错题start~\n')
+            print_t(f'😏 一共对{yes}个，错{no}个')
+            print_t(f'😠 不扎实{no}个！巩固错题start~\n')
             gai(cuo_a)
 
     def gai(item):
@@ -168,27 +168,27 @@ def ting_main():
                 return
             if ',' in ans:
                 if python in ans:
-                    print_t('对喽~')
+                    print_t('✅ 对喽~')
                     yes_gai += 1
                 else:
-                    print_t(f'{python}错喽错喽！正确答案为{re.sub(",", "或", ans)}~')
+                    print_t(f'❌ {python}错喽错喽！正确答案为{re.sub(",", "或", ans)}~')
                     ercuo_count += 1
                     cuocount += 1
                     ercuo[ttt] = ans
             else:
                 if python == ans:
-                    print_t('对喽~')
+                    print_t('✅ 对喽~')
                     yes_gai += 1
                 else:
-                    print_t(f'{python}错喽错喽！正确答案为{ans}~')
+                    print_t(f'❌ {python}错喽错喽！正确答案为{ans}~')
                     ercuo_count += 1
                     cuocount += 1
                     ercuo[ttt] = ans
-        print_t('end~')
+        print_t('🍅 end~')
         if yes_gai == 0:
-            print_t('内个，全错！\n')
+            print_t('😠 内个，全错！\n')
         elif cuocount > 0:
-            print_t(f'一共对{yes_gai}个，错{cuocount}个')
+            print_t(f'😏 一共对{yes_gai}个，错{cuocount}个')
 
     def def_status(status_true_or_false):
         nonlocal ercuo, ercuo_count
@@ -221,7 +221,7 @@ def ting_main():
     elif status == 'no' or status == '':
         def_status('False')
     else:
-        print_t('我有权怀疑你打错了~\n')
+        print_t('😠 我有权怀疑你打错了~\n')
 
 
 def study():
@@ -237,11 +237,11 @@ def study():
         try:
             get_list = re.split(pattern, get)
         except IndexError as a:
-            raise IndexError('暴发错误！错误原因：' + str(a))
+            raise IndexError('❌ 暴发错误！错误原因：' + str(a))
         if get_list[0] in grade:
-            print('年级分类效验完成！~')
+            print('🍑 年级分类效验完成！~')
             if os.path.exists(grade[get_list[0]] + get_list[1] + '.json'):
-                print('单词表效验完成！')
+                print('🍌 单词表效验完成！')
                 study_topic = input('学习话题：')
                 study_start = input('起始行数：')
                 study_end = input('结束行数：')
@@ -255,7 +255,7 @@ def study():
                         except:
                             study = json_raed_get_py
 
-                        print('单词表获取完成！')
+                        print('✅ 单词表获取完成！')
 
                         print_t('开始学习~\n\n')
                         try:
@@ -271,15 +271,15 @@ def study():
                                     print('{} -> {}'.format(study[i], i))
                                 else:
                                     break
-                            print_t('结束~\n\n')
+                            print_t('🍅 结束~\n\n')
                         except:
-                            print_t('话题输出失败！')
+                            print_t('❌ 话题输出失败！')
 
             else:
-                print_t('暂无此单词表~')
+                print_t('❌ 暂无此单词表~')
 
         else:
-            print_t('暂无此年级分类~')
+            print_t('❌ 暂无此年级分类~')
 
 
 
@@ -287,7 +287,7 @@ def study():
 
 def main_menu():
     """主菜单循环，用户交互入口。"""
-    print('-r 练习错题，-p 练习课表，-d 继续学习，-c 关闭进程')
+    print('🥑 -r 练习错题，-p 练习课表，-d 继续学习，-c 关闭进程')
     while True:
         status_input = input('>>>')
         if status_input == '-r':
@@ -297,10 +297,10 @@ def main_menu():
         elif status_input == '-d':
             study()
         elif status_input == '-c':
-            print_t('进程已关闭。')
+            print_t('✅ 进程已关闭。')
             break
         else:
-            print_t('未知指令，已退出。')
+            print_t('❌ 未知指令，已退出。')
             break
 
 if __name__ == "__main__":
