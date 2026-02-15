@@ -156,7 +156,7 @@ def ting_main():
         print_t('🍅 end~\n')
         if no > 0:
             print_t(f'😏 一共对{yes}个，错{no}个')
-            print_t(f'😠 不扎实{no}个！巩固错题start~\n')
+            print_t(f'😡 不扎实{no}个！巩固错题start~\n')
             gai(cuo_a)
 
     def gai(item):
@@ -186,7 +186,7 @@ def ting_main():
                     ercuo[ttt] = ans
         print_t('🍅 end~')
         if yes_gai == 0:
-            print_t('😠 内个，全错！\n')
+            print_t('😡 内个，全错！\n')
         elif cuocount > 0:
             print_t(f'😏 一共对{yes_gai}个，错{cuocount}个')
 
@@ -211,7 +211,7 @@ def ting_main():
             item = pyb.huan(qu[0])
             ting(item)
         if ercuo_count != 0:
-            print_t(f'\n有{ercuo_count}个二错单词，下面是答案~')
+            print_t(f'\n😡有{ercuo_count}个二错单词，下面是答案~')
             pyc.index_xie(ercuo)
         print_t('\n')
 
@@ -221,7 +221,7 @@ def ting_main():
     elif status == 'no' or status == '':
         def_status('False')
     else:
-        print_t('😠 我有权怀疑你打错了~\n')
+        print_t('😡 我有权怀疑你打错了~\n')
 
 
 def study():
