@@ -86,12 +86,12 @@ def cuo():
                 for hello in result:
                     if python == hello:
                         print_t('✅ 对喽~')
-                        yes += 1
+                        yes_xie += 1
                         ok = False
                         break
                 if ok:
                     print_t(f'❌ {python}错喽错喽！正确答案为{re.sub(",", "或", ans)}~')
-                    no += 1
+                    no_xie += 1
                     cuo_a[i] = ans
             else:
                 if python == ans:
@@ -211,7 +211,7 @@ def ting_main():
             item = pyb.huan(qu[0])
             ting(item)
         if ercuo_count != 0:
-            print_t(f'\n😡有{ercuo_count}个二错单词，下面是答案~')
+            print_t(f'\n😡 有{ercuo_count}个二错单词，下面是答案~')
             pyc.index_xie(ercuo)
         print_t('\n')
 
